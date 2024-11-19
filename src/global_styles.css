@@ -1,0 +1,219 @@
+/* Prayer Times Styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+
+body {
+  font-family: 'Noto Naskh Arabic', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+  direction: rtl;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 2.5em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.location-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.select-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a237e;
+  font-family: 'Noto Naskh Arabic', Arial, sans-serif;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.select-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.select-input:disabled {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+.prayer-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+  animation: slideUp 1s ease-out;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23f8f9fa10" d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z"/></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200px;
+}
+
+.prayer-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.prayer-time:hover {
+  background: rgba(33, 150, 243, 0.1);
+  transform: translateX(-5px);
+  border-radius: 10px;
+}
+
+.prayer-time:last-child {
+  border-bottom: none;
+}
+
+.prayer-name {
+  font-weight: bold;
+  color: #1a237e;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prayer-name::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231a237e"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-5 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-5 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>') center/contain no-repeat;
+}
+
+.time {
+  color: #0d47a1;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: rgba(33, 150, 243, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.time:hover {
+  background: rgba(33, 150, 243, 0.2);
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: #ffffff;
+  padding: 15px;
+  background: rgba(244, 67, 54, 0.9);
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.loading {
+  color: #ffffff;
+  margin: 40px 0;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

@@ -1,0 +1,34 @@
+`<div class="city-prayers">
+  <h2>الصلاة حسب المدينة</h2>
+  
+  <div class="search-form">
+    <div class="form-group">
+      <label for="city">اختر المدينة</label>
+      <select 
+        id="city" 
+        [(ngModel)]="selectedCity" 
+        (change)="onCityChange()"
+        class="select-input">
+        <option value="">اختر المدينة</option>
+        <option *ngFor="let city of cities" [value]="city.value">
+          {{ city.label }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    جاري تحميل مواقيت الصلاة
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div class="prayer-card" *ngIf="prayerTimes && !loading">
+    <div class="prayer-time" *ngFor="let prayer of prayers">
+      <span class="prayer-name">{{ prayer.nameAr }}</span>
+      <span class="time">{{ prayerTimes[prayer.nameEn] }}</span>
+    </div>
+  </div>
+</div>`
